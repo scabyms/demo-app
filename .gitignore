@@ -33,3 +33,4 @@ composer.phar
 /reports/*
 .idea
 *.php~
+.scannerwork/

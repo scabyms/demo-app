@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label 'demo-ci-jenkins-slave'
-  }
+  agent any
   stages {
     stage('SCM') {
       steps {
@@ -11,7 +9,12 @@ pipeline {
     stage('Static Analysis') {
       steps {
          echo 'Static Analysis'
-         sh 'ls'
+         script {
+              def scannerHome = tool 'SonarQube Scanner 2.8';
+              withSonarQubeEnv('My SonarQube Server') {
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
+         }
        }
     }
     stage('Unit Test') {
@@ -24,6 +27,14 @@ pipeline {
       steps {
         echo "deployment"
         sh 'pwd'
+      }
+    }
+    stage('API Test') {
+      steps {
+        echo "API Test"
+      }
+      post {
+        always
       }
     }
   }
