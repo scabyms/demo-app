@@ -34,7 +34,19 @@ pipeline {
         echo "API Test"
       }
       post {
-        always
+        always {
+          echo "Finish Test"
+        }
+      }
+    }
+    stage('GUI Test') {
+      steps {
+        echo "GUI Test"
+      }
+      post {
+        always {
+          echo "Finish Test"
+        }
       }
     }
   }
