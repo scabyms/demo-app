@@ -2,7 +2,9 @@ pipeline {
   agent any
   stages {
     stage('SCM') {
-      git credentialsId: 'github', url: 'https://github.com/scaforos/demo-app'
+      steps {
+        git credentialsId: 'github', url: 'https://github.com/scaforos/demo-app'
+      }
     }
     stage('Static Analysis') {
       steps {
