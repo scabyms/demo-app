@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent demo-ci-jenkins-slave
   stages {
     stage('SCM') {
       steps {
