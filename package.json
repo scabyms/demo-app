@@ -1,0 +1,27 @@
+{
+  "name": "demo-app",
+  "version": "0.0.1",
+  "description": "for demo",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api-test": "jest tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scaforos/demo-app.git"
+  },
+  "author": "hy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scaforos/demo-app/issues"
+  },
+  "homepage": "https://github.com/scaforos/demo-app#readme",
+  "devDependencies": {
+    "frisby": "^2.0.15",
+    "jest": "^22.4.3"
+  }
+}
