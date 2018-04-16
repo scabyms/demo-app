@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('SCM') {
-      steps {
-        git credentialsId: 'github', url: 'https://github.com/scaforos/demo-app'
-      }
-    }
     stage('Static Analysis') {
       steps {
          echo 'Static Analysis'
@@ -32,10 +27,11 @@ pipeline {
     stage('API Test') {
       steps {
         echo "API Test"
+        sh "npm install && npm run api-test"
       }
       post {
         always {
-          echo "Finish Test"
+          echo "Finish API Test"
         }
       }
     }
@@ -45,7 +41,7 @@ pipeline {
       }
       post {
         always {
-          echo "Finish Test"
+          echo "Finish GUI Test"
         }
       }
     }
