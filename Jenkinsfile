@@ -20,9 +20,6 @@ pipeline {
     }
     stage('Deployment') {
       when {
-        expression {
-          currentBuild.result == 'SUCCESS'
-        }
         branch 'master'
       }
       steps {
