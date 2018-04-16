@@ -35,6 +35,9 @@ pipeline {
         echo "API Test"
         sh "npm install && npm run api-test"
       }
+      steps {
+        echo "Collect reports"
+      }
       post {
         always {
           echo "Finish API Test"
