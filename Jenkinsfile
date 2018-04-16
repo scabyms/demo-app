@@ -4,11 +4,11 @@ pipeline {
     stage('Static Analysis') {
       steps {
          echo 'Static Analysis'
-         script {
-              def scannerHome = tool 'SonarQube Scanner 2.8';
-              withSonarQubeEnv('My SonarQube Server') {
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
+         // script {
+         //      def scannerHome = tool 'SonarQube Scanner 2.8';
+         //      withSonarQubeEnv('My SonarQube Server') {
+         //        sh "${scannerHome}/bin/sonar-scanner"
+         //    }
          }
        }
     }
