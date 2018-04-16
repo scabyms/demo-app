@@ -19,12 +19,21 @@ pipeline {
       }
     }
     stage('Deployment') {
+      when {
+        expression {
+          currentBuild.result == 'SUCCESS'
+        }
+        branch 'master'
+      }
       steps {
         echo "deployment"
-        sh 'git push heroku master'
+        // sh 'git push heroku master'
       }
     }
     stage('API Test') {
+      when {
+        branch 'master'
+      }
       steps {
         echo "API Test"
         sh "npm install && npm run api-test"
@@ -36,6 +45,9 @@ pipeline {
       }
     }
     stage('GUI Test') {
+      when {
+        branch 'master'
+      }
       steps {
         echo "GUI Test"
       }
