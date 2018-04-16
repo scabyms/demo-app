@@ -21,7 +21,7 @@ pipeline {
     stage('Deployment') {
       steps {
         echo "deployment"
-        sh 'pwd'
+        sh 'git push heroku master'
       }
     }
     stage('API Test') {
